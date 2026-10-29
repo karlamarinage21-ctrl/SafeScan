@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SafeScan - Ficha Médica de Emergencia</title>
+  <link rel="stylesheet" href="style.css">
+  <!-- Fuente limpia y de rápida carga -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
+</head>
+<body>
+
+  <div class="card">
+    <!-- Encabezado de Alerta -->
+    <header class="header">
+      <div class="logo-container">
+        <span class="cross">✚</span>
+        <h1>SafeScan</h1>
+      </div>
+      <p class="subtitle">INFORMACIÓN MÉDICA DE EMERGENCIA</p>
+    </header>
+
+    <!-- Datos Principales Paciente -->
+    <section class="patient-info">
+      <h2 class="patient-name">Karla Marina García Elizalde</h2>
+      <div class="blood-type-badge">
+        <span class="blood-label">TIPO DE SANGRE</span>
+        <span class="blood-value">O +</span>
+      </div>
+    </section>
+
+    <!-- Botón de Emergencia Destacado -->
+    <section class="action-section">
+      <a href="tel:+525512345678" class="btn-emergency">
+        <span class="phone-icon">📞</span>
+        LLAMAR A CONTACTO DE EMERGENCIA
+      </a>
+    </section>
+
+    <!-- Secciones Clínicas -->
+    <section class="details-section">
+      
+      <div class="detail-card alert">
+        <div class="detail-header">
+          <span class="icon">⚠️</span>
+          <h3>ALERGIAS SEVERAS</h3>
+        </div>
+        <p>Penicilina, Sulfa, Picadura de abeja.</p>
+      </div>
+
+      <div class="detail-card">
+        <div class="detail-header">
+          <span class="icon">📋</span>
+          <h3>CONDICIONES MÉDICAS</h3>
+        </div>
+        <p>Ninguna registrada / Opcional (Ej. Asma, Diabetes Tipo 1).</p>
+      </div>
+
+      <div class="detail-card">
+        <div class="detail-header">
+          <span class="icon">💊</span>
+          <h3>MEDICAMENTOS ACTUALES</h3>
+        </div>
+        <p>Ninguno.</p>
+      </div>
+
+      <div class="detail-card">
+        <div class="detail-header">
+          <span class="icon">👤</span>
+          <h3>CONTACTO PRIMARIO</h3>
+        </div>
+        <p><strong>Familiar:</strong> Mamá / Papá / Tutor</p>
+        <p><strong>Teléfono:</strong> +52 (55) 1234-5678</p>
+      </div>
+
+    </section>
+
+    <!-- Pie de página -->
+    <footer class="footer">
+      <p>Sistema Modular de Identificación NFC <strong>SafeScan</strong></p>
+    </footer>
+  </div>
+
+</body>
+</html>
