@@ -1,0 +1,171 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+}
+
+body {
+  background-color: #0d1b2a;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  padding: 16px;
+}
+
+.card {
+  background: #ffffff;
+  width: 100%;
+  max-width: 420px;
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+}
+
+/* Header */
+.header {
+  background-color: #1b263b;
+  color: #ffffff;
+  text-align: center;
+  padding: 20px 16px;
+}
+
+.logo-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+}
+
+.cross {
+  color: #e63946;
+  font-size: 28px;
+  font-weight: 800;
+}
+
+.header h1 {
+  font-size: 24px;
+  letter-spacing: 1px;
+}
+
+.subtitle {
+  font-size: 11px;
+  color: #e0e1dd;
+  letter-spacing: 1.5px;
+  margin-top: 4px;
+  font-weight: 600;
+}
+
+/* Datos del Paciente */
+.patient-info {
+  text-align: center;
+  padding: 24px 16px 16px;
+}
+
+.patient-name {
+  font-size: 20px;
+  color: #0d1b2a;
+  margin-bottom: 16px;
+}
+
+.blood-type-badge {
+  display: inline-flex;
+  flex-direction: column;
+  background-color: #e63946;
+  color: #ffffff;
+  padding: 10px 24px;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(230, 57, 70, 0.3);
+}
+
+.blood-label {
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  opacity: 0.9;
+}
+
+.blood-value {
+  font-size: 28px;
+  font-weight: 800;
+  line-height: 1.1;
+}
+
+/* Botón de Emergencia */
+.action-section {
+  padding: 8px 20px 20px;
+}
+
+.btn-emergency {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  background-color: #2a9d8f;
+  color: #ffffff;
+  text-decoration: none;
+  font-weight: 700;
+  font-size: 14px;
+  padding: 16px;
+  border-radius: 14px;
+  text-align: center;
+  box-shadow: 0 4px 12px rgba(42, 157, 143, 0.3);
+  transition: transform 0.2s;
+}
+
+.btn-emergency:active {
+  transform: scale(0.98);
+}
+
+/* Detalle Clínico */
+.details-section {
+  padding: 0 20px 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.detail-card {
+  background-color: #f8f9fa;
+  border-left: 5px solid #1b263b;
+  padding: 14px;
+  border-radius: 8px;
+}
+
+.detail-card.alert {
+  background-color: #fff5f5;
+  border-left-color: #e63946;
+}
+
+.detail-header {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 6px;
+}
+
+.detail-header h3 {
+  font-size: 12px;
+  color: #415a77;
+  letter-spacing: 0.5px;
+}
+
+.detail-card.alert .detail-header h3 {
+  color: #e63946;
+}
+
+.detail-card p {
+  font-size: 14px;
+  color: #1d2d44;
+  line-height: 1.4;
+}
+
+/* Footer */
+.footer {
+  text-align: center;
+  padding: 16px;
+  background-color: #f1f3f5;
+  font-size: 12px;
+  color: #778da9;
+}
