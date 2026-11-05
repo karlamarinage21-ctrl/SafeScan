@@ -1,0 +1,414 @@
+<!DOCTYPE html><html class="" lang="en" style=""><head><meta charset="utf-8"><meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" name="viewport"><meta content="mobile_stack" name="shell-type"><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&amp;family=JetBrains+Mono:wght@500;600;700&amp;display=swap" rel="stylesheet"><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config = {darkMode: "class", theme: {extend: {colors: {"error-container": "#ffdad6", surface: "#f8f9ff", "on-surface": "#0d1c2d", "on-tertiary-container": "#f5fff6", "surface-container-lowest": "#ffffff", "secondary-fixed": "#c4e7ff", "on-primary-fixed-variant": "#930013", "on-secondary": "#ffffff", "surface-dim": "#ccdbf2", "surface-bright": "#f8f9ff", tertiary: "#006947", "on-secondary-container": "#004d6a", "surface-variant": "#d4e4fa", "surface-tint": "#b91a24", error: "#ba1a1a", primary: "#b61722", "on-tertiary": "#ffffff", "primary-fixed": "#ffdad7", "on-error-container": "#93000a", "tertiary-container": "#00855b", "surface-container-low": "#eef4ff", "surface-container": "#e5efff", "primary-container": "#da3437", "on-tertiary-fixed-variant": "#005236", "on-primary": "#ffffff", "on-tertiary-fixed": "#002113", secondary: "#00668a", outline: "#8f6f6d", "on-background": "#0d1c2d", "tertiary-fixed": "#6ffbbe", "inverse-on-surface": "#e9f1ff", "secondary-container": "#40c2fd", "tertiary-fixed-dim": "#4edea3", background: "#f8f9ff", "on-secondary-fixed": "#001e2c", "on-error": "#ffffff", "on-primary-container": "#fffbff", "secondary-fixed-dim": "#7bd0ff", "primary-fixed-dim": "#ffb3ad", "inverse-primary": "#ffb3ad", "on-secondary-fixed-variant": "#004c69", "outline-variant": "#e4beba", "inverse-surface": "#233143", "on-surface-variant": "#5b403e", "surface-container-high": "#dbe9ff", "on-primary-fixed": "#410004", "surface-container-highest": "#d4e4fa"}, borderRadius: {DEFAULT: "0.25rem", lg: "0.5rem", xl: "0.75rem", full: "9999px"}, spacing: {"space-md": "1rem", gutter: "1rem", "gutter-tablet": "1.5rem", "gutter-desktop": "2rem", "space-lg": "1.5rem", "space-xl": "2rem", "space-sm": "0.5rem", "margin-tablet": "2rem", "space-xs": "0.25rem", "margin-desktop": "3rem", margin: "1rem"}, fontFamily: {"body-md": ["Inter"], "telemetry-data": ["JetBrains Mono"], "label-sm": ["Inter"], "headline-lg-mobile": ["Inter"], "display-xl-mobile": ["Inter"], "headline-lg": ["Inter"], "label-caps": ["JetBrains Mono"], "vital-display": ["JetBrains Mono"], "display-xl": ["Inter"], "headline-md": ["Inter"], "body-sm": ["Inter"], "body-lg": ["Inter"], "vital-display-mobile": ["JetBrains Mono"], headline: ["Inter"], display: ["Inter"], body: ["Inter"], label: ["JetBrains Mono"]}, fontSize: {"body-md": ["14px", {lineHeight: "20px", fontWeight: "400"}], "telemetry-data": ["16px", {lineHeight: "20px", letterSpacing: "-0.02em", fontWeight: "600"}], "label-sm": ["11px", {lineHeight: "14px", fontWeight: "500"}], "headline-lg-mobile": ["24px", {lineHeight: "32px", letterSpacing: "-0.01em", fontWeight: "700"}], "display-xl-mobile": ["36px", {lineHeight: "44px", letterSpacing: "-0.02em", fontWeight: "800"}], "headline-lg": ["32px", {lineHeight: "40px", letterSpacing: "-0.02em", fontWeight: "700"}], "label-caps": ["11px", {lineHeight: "14px", letterSpacing: "0.08em", fontWeight: "700"}], "vital-display": ["40px", {lineHeight: "44px", letterSpacing: "-0.05em", fontWeight: "700"}], "display-xl": ["56px", {lineHeight: "64px", letterSpacing: "-0.03em", fontWeight: "800"}], "headline-md": ["20px", {lineHeight: "28px", letterSpacing: "-0.01em", fontWeight: "600"}], "body-sm": ["12px", {lineHeight: "16px", fontWeight: "400"}], "body-lg": ["16px", {lineHeight: "24px", fontWeight: "400"}], "vital-display-mobile": ["28px", {lineHeight: "32px", letterSpacing: "-0.04em", fontWeight: "700"}]}}}};</script><style>@layer base{html,body{width:100%;margin:0;padding:0;background-color:#051424;}body{overscroll-behavior:none;-webkit-font-smoothing:antialiased;}.pb-safe{padding-bottom:env(safe-area-inset-bottom,0px);}.pt-safe{padding-top:env(safe-area-inset-top,0px);}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}</style><style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head><body class="bg-surface font-body-md text-body-md text-on-surface antialiased flex flex-col min-h-screen"><header class="fixed top-0 w-full z-50 pt-safe bg-surface/80 backdrop-blur-xl shadow-[0_1px_8px_rgba(0,0,0,0.04)]"><div class="h-16 px-gutter flex items-center justify-between"><div class="flex items-center gap-space-sm"><button class="w-11 h-11 flex items-center justify-center rounded-xl bg-surface-container-high/60 text-on-surface hover:text-secondary transition-colors" onclick="history.back()"><span class="material-symbols-outlined text-[20px]">arrow_back</span></button><img alt="SafeScan Medical Shield Logo" class="h-8 w-auto object-contain" src="https://lh3.googleusercontent.com/aida/AEtjO1UbibViKKedz1tgkth-DU9r39efC5mNQ0HoGHyaTeCnn9mLdSUpUD43lqFzpq5XMsDlNWRPKLGb2cslExTrRKB6hO3_Nz8U_IRnWIx04bkAckQ-zpI2-44Qn85EWCBOKaiCbGIn8ceOLJPIK5Io8JiV76hGmMGweMqoKTLikiMaQXY0JRUVchQYmCSbC46MA-h1sbdSCHkIE8IWXaLFrsVCwBiFPwpxelqFae4mKUQ"><div class="flex flex-col"><div class="flex items-center gap-space-xs"><span class="font-label-caps text-label-caps text-secondary tracking-widest">SAFESCAN</span><span class="w-1.5 h-1.5 rounded-full bg-secondary animate-ping"></span></div><h1 class="font-headline-md text-headline-md text-on-surface leading-none">Active Telemetry Stream</h1></div></div><div class="flex items-center gap-space-sm"><div class="w-8 h-8 rounded-full bg-primary flex items-center justify-center shrink-0"><span class="material-symbols-outlined text-on-primary text-[18px]">person</span></div></div></div></header><main class="flex-1 flex flex-col relative w-full pt-16 pb-safe bg-surface"><div class="flex flex-col w-full px-margin pb-space-xl space-y-space-md">
+<!-- TOP STATUS BANNER: SCAN DECRYPTED & TELEMETRY -->
+<div class="w-full bg-surface-container-high rounded-xl p-space-md shadow-sm">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-space-xs">
+<span class="relative flex h-3 w-3">
+<span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-tertiary-container opacity-75"></span>
+<span class="relative inline-flex rounded-full h-3 w-3 bg-tertiary"></span>
+</span>
+<span class="font-label-caps text-label-caps text-tertiary uppercase tracking-widest">NFC DECRYPTED &amp; VERIFIED</span>
+</div>
+<span class="font-label-caps text-label-caps text-secondary bg-secondary-fixed/50 px-space-xs py-0.5 rounded">0.18s LATENCY</span>
+</div>
+<div class="mt-space-xs flex flex-wrap items-center justify-between text-on-surface-variant font-label-caps text-label-caps">
+<span class="">NTAG216 • ISO/IEC 14443-A</span>
+<span class="">UID: <span class="text-on-surface">04:A3:88:21:F9</span></span>
+</div>
+<div class="mt-space-xs flex items-center justify-between font-label-caps text-label-caps text-secondary">
+<span class="">AES-256 GCM AUTHENTICATED</span>
+<span id="live-scan-time" class="">10:41:26 a.m. LOCAL</span>
+</div>
+</div>
+<!-- URGENT ONE-TOUCH PRIMARY ACTION: EMERGENCY CONTACT -->
+<div class="w-full bg-primary-container text-on-primary-container rounded-xl p-space-md shadow-md">
+<div class="flex items-center justify-between mb-space-xs">
+<span class="font-label-caps text-label-caps uppercase tracking-wider text-on-primary-container/80">PRIMARY SPOUSE / NEXT OF KIN</span>
+<span class="flex items-center gap-1 font-label-caps text-label-caps bg-on-primary-container/20 px-2 py-0.5 rounded-full text-on-primary-container">
+<span class="material-symbols-outlined text-[13px]">lock_open</span> ICE AUTHORIZED
+      </span>
+</div>
+<div class="flex items-center justify-between">
+<div class="min-w-0">
+<h2 class="font-headline-lg-mobile text-headline-lg-mobile text-on-primary-container truncate font-bold">Karla Marina</h2>
+<p class="font-body-sm text-body-sm text-on-primary-container/90">Wife • Speaks ES / EN • +1 (555) 839-2041</p>
+</div>
+<a aria-label="One-Touch Call Emergency Spouse" class="shrink-0 ml-space-sm h-12 px-space-md bg-on-primary-container text-primary-container font-headline-md text-headline-md rounded-xl flex items-center justify-center gap-space-xs shadow-md active:scale-95 transition-transform" href="tel:5558392041">
+<span class="material-symbols-outlined text-[24px]">call</span>
+<span class="font-bold">CALL NOW</span>
+</a>
+</div>
+</div>
+<!-- SECONDARY TACTICAL ACTIONS: DUAL FAST BAR -->
+<div class="grid grid-cols-2 gap-space-sm w-full">
+<button class="w-full bg-secondary text-on-secondary rounded-xl p-space-md shadow-sm flex flex-col items-start justify-between min-h-[82px] active:bg-secondary/90 transition-colors" id="btn-dispatch-gps">
+<div class="flex items-center justify-between w-full">
+<span class="material-symbols-outlined text-[22px]">share_location</span>
+<span class="font-label-caps text-label-caps bg-on-secondary/20 px-1.5 py-0.5 rounded">GPS ACTIVE</span>
+</div>
+<div class="text-left mt-space-xs">
+<div class="font-label-caps text-label-caps uppercase">Send Coordinates</div>
+<div class="font-body-sm text-body-sm text-on-secondary/90 font-medium leading-tight">Transmit Pin to 911</div>
+</div>
+</button>
+<button class="w-full bg-error text-on-error rounded-xl p-space-md shadow-sm flex flex-col items-start justify-between min-h-[82px] active:bg-error/90 transition-colors" id="btn-emt-code">
+<div class="flex items-center justify-between w-full">
+<span class="material-symbols-outlined text-[22px]">medical_services</span>
+<span class="font-label-caps text-label-caps bg-on-error/20 px-1.5 py-0.5 rounded animate-pulse">TRIAGE</span>
+</div>
+<div class="text-left mt-space-xs">
+<div class="font-label-caps text-label-caps uppercase">Code Red Alert</div>
+<div class="font-body-sm text-body-sm text-on-error/90 font-medium leading-tight">Sync Resuscitation Feed</div>
+</div>
+</button>
+</div>
+<!-- SECTION: CRITICAL VITAL PROFILE & BLOOD DATA -->
+<div class="w-full bg-surface-container rounded-xl p-space-md shadow-sm">
+<div class="flex items-start justify-between">
+<div class="flex items-center gap-space-sm">
+<img class="w-14 h-14 rounded-xl object-cover shrink-0 bg-surface-variant" data-alt="Clear medical identity headshot portrait photo of Carlos Mendoza, a 29 year old Hispanic male with dark short hair, neutral calm expression, clinical identification badge format with high resolution lighting." src="https://lh3.googleusercontent.com/aida-public/AB6AXuD12mW_BC1dqVlRovfalGU4T3AILHZtAMXjKRMnPchd4_vc0rQaPTa9TaymmsPrnQEZQHKf9LzFlgDwhJzcXfvBwpwSV1AzU4R5roekKWmeThFnAu5BYBIZOMj4V0_E4JzOiytoou_cZ33nVz4mN72lm_nUgH9YtbrCJLF-mS9xXUo2bWosnb15mAD0aJWVcy0L3Wz3bWOiQjXTY-0m6x-4CYeC-P87zdE2CHA-Vwg">
+<div>
+<div class="flex items-center gap-1.5 flex-wrap">
+<span class="font-headline-lg-mobile text-headline-lg-mobile font-bold text-on-surface">Jonathan Mares Ortiz F.</span>
+<span class="font-label-caps text-label-caps bg-tertiary-container text-on-tertiary-container px-1.5 py-0.5 rounded uppercase">ORGAN DONOR</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant">20 yo (Male XY) • DOB: Oct 21, 2001 • 74 kg • 178 cm</p>
+<div class="flex items-center gap-space-xs mt-0.5">
+<span class="font-label-caps text-label-caps bg-surface-variant text-on-surface-variant px-1 rounded">LANG: ES (Primary) / EN</span>
+<span class="font-label-caps text-label-caps text-secondary font-semibold">Triage Grade: ALPHA</span>
+</div>
+</div>
+</div>
+</div>
+<!-- BLOOD COMPATIBILITY BENTO -->
+<div class="mt-space-md grid grid-cols-3 gap-space-xs">
+<div class="bg-primary text-on-primary rounded-xl p-space-sm flex flex-col justify-between items-center text-center">
+<span class="font-label-caps text-label-caps text-on-primary/80 uppercase">ABO/Rh Type</span>
+<div class="font-vital-display text-vital-display font-extrabold leading-none my-0.5">O+</div>
+<span class="font-label-caps text-label-caps bg-on-primary/20 px-1 py-0.2 rounded text-[10px]">Rh(D) POS</span>
+</div>
+<div class="col-span-2 bg-surface-container-high rounded-xl p-space-sm flex flex-col justify-between">
+<div class="flex items-center justify-between">
+<span class="font-label-caps text-label-caps text-secondary uppercase font-bold">Transfusion Policy</span>
+<span class="material-symbols-outlined text-secondary text-[18px]">water_drop</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface leading-tight font-medium">Emergency PRBC: Give <span class="text-primary font-bold">O Positive</span> (or O- in shortage). Crossmatch antibody screen: NEGATIVE.</p>
+<div class="flex items-center gap-space-xs text-[10px] text-on-surface-variant font-label-caps">
+<span class="">K- Antigen: NEG</span>
+<span class="">•</span>
+<span class="">CMV Safe: YES</span>
+</div>
+</div>
+</div>
+</div>
+<!-- SECTION: RED FLAG ALLERGIES & ANAPHYLAXIS SHOCK PROTOCOL -->
+<div class="w-full bg-error-container text-on-error-container rounded-xl p-space-md shadow-sm">
+<div class="flex items-center justify-between mb-space-xs">
+<div class="flex items-center gap-space-xs">
+<span class="material-symbols-outlined text-error text-[24px]">warning</span>
+<h3 class="font-headline-md text-headline-md text-on-error-container font-bold uppercase tracking-tight">CRITICAL ALLERGIES</h3>
+</div>
+<span class="font-label-caps text-label-caps bg-error text-on-error px-2 py-0.5 rounded uppercase font-bold">AIRWAY HAZARDS</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-error-container mb-space-sm font-medium">Immediate severe anaphylactic risk upon exposure. Monitor upper airway integrity and stridor.</p>
+<div class="space-y-space-xs">
+<div class="bg-surface-container-lowest text-on-surface rounded-lg p-space-sm flex items-start justify-between shadow-xs">
+<div>
+<div class="flex items-center gap-space-xs">
+<span class="font-telemetry-data text-telemetry-data text-error font-bold">PENICILLIN &amp; BETA-LACTAMS</span>
+<span class="font-label-caps text-label-caps bg-error-container text-on-error-container px-1 rounded">SEVERE</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-0.5">Reaction: Anaphylaxis, bronchospasm, angioedema. CONTRAINDICATED: Ampicillin, Amoxicillin, Cephalosporins.</p>
+</div>
+<span class="material-symbols-outlined text-error text-[20px] shrink-0">block</span>
+</div>
+<div class="bg-surface-container-lowest text-on-surface rounded-lg p-space-sm flex items-start justify-between shadow-xs">
+<div>
+<div class="flex items-center gap-space-xs">
+<span class="font-telemetry-data text-telemetry-data text-error font-bold">SHELLFISH (CRUSTACEANS)</span>
+<span class="font-label-caps text-label-caps bg-error-container text-on-error-container px-1 rounded">SEVERE</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-0.5">Reaction: Acute laryngeal edema, systemic urticaria, hypotensive shock.</p>
+</div>
+<span class="material-symbols-outlined text-error text-[20px] shrink-0">block</span>
+</div>
+<div class="bg-surface-container-lowest text-on-surface rounded-lg p-space-sm flex items-start justify-between shadow-xs">
+<div>
+<div class="flex items-center gap-space-xs">
+<span class="font-telemetry-data text-telemetry-data text-on-surface font-bold">NATURAL LATEX</span>
+<span class="font-label-caps text-label-caps bg-surface-variant text-on-surface-variant px-1 rounded">CONTACT</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-0.5">First Responder Notice: Utilize NITRILE or Neoprene gloves and equipment ONLY.</p>
+</div>
+<span class="material-symbols-outlined text-secondary text-[20px] shrink-0">shield</span>
+</div>
+</div>
+</div>
+<!-- SECTION: ACTIVE CONDITIONS & FIRST-RESPONDER FIELD DIRECTIVES -->
+<div class="w-full bg-surface-container rounded-xl p-space-md shadow-sm space-y-space-md">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-space-xs">
+<span class="material-symbols-outlined text-secondary text-[22px]">vital_signs</span>
+<h3 class="font-headline-md text-headline-md text-on-surface font-bold">FIELD CLINICAL DIRECTIVES</h3>
+</div>
+<span class="font-label-caps text-label-caps text-secondary font-bold uppercase">2 ACTIVE CHRONIC</span>
+</div>
+<!-- PROTOCOL CARD 1: EPILEPSY -->
+<div class="bg-surface-container-high rounded-xl p-space-md">
+<div class="flex items-center justify-between mb-space-xs">
+<div class="flex items-center gap-1.5">
+<span class="material-symbols-outlined text-primary text-[20px]">neurology</span>
+<span class="font-telemetry-data text-telemetry-data text-on-surface font-bold">Focal Onset Epilepsy (Intractable)</span>
+</div>
+<span class="font-label-caps text-label-caps bg-primary-fixed text-on-primary-fixed px-1.5 py-0.5 rounded font-bold">SEIZURE RISK</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant mb-space-sm font-medium">Bystander / EMT immediate sequence during active clonic event:</p>
+<div class="space-y-space-xs">
+<div class="flex items-start gap-space-xs bg-surface-container-lowest p-space-xs rounded-lg">
+<span class="w-5 h-5 rounded-full bg-surface-variant text-on-surface-variant flex items-center justify-center font-label-caps text-label-caps shrink-0 font-bold">1</span>
+<p class="font-body-sm text-body-sm text-on-surface">Cushion head, loosen tight neckwear. Clear hazardous blunt objects nearby.</p>
+</div>
+<div class="flex items-start gap-space-xs bg-surface-container-lowest p-space-xs rounded-lg">
+<span class="w-5 h-5 rounded-full bg-error text-on-error flex items-center justify-center font-label-caps text-label-caps shrink-0 font-bold">!</span>
+<p class="font-body-sm text-body-sm text-error font-medium">NEVER force anything into mouth or try to hold tongue down.</p>
+</div>
+<div class="flex items-start gap-space-xs bg-surface-container-lowest p-space-xs rounded-lg">
+<span class="w-5 h-5 rounded-full bg-surface-variant text-on-surface-variant flex items-center justify-center font-label-caps text-label-caps shrink-0 font-bold">2</span>
+<p class="font-body-sm text-body-sm text-on-surface">Roll gently into Lateral Left Recovery Position to safeguard airway drainage.</p>
+</div>
+<div class="flex items-start gap-space-xs bg-surface-container-lowest p-space-xs rounded-lg">
+<span class="w-5 h-5 rounded-full bg-surface-variant text-on-surface-variant flex items-center justify-center font-label-caps text-label-caps shrink-0 font-bold">3</span>
+<p class="font-body-sm text-body-sm text-on-surface">If tonic-clonic convulsion persists &gt; 3 mins: Prepare Buccal Midazolam / EMT Diazepam rescue.</p>
+</div>
+</div>
+</div>
+<!-- PROTOCOL CARD 2: TYPE 1 DIABETES -->
+<div class="bg-surface-container-high rounded-xl p-space-md">
+<div class="flex items-center justify-between mb-space-xs">
+<div class="flex items-center gap-1.5">
+<span class="material-symbols-outlined text-secondary text-[20px]">monitor_heart</span>
+<span class="font-telemetry-data text-telemetry-data text-on-surface font-bold">Type 1 Diabetes Mellitus (T1D)</span>
+</div>
+<span class="font-label-caps text-label-caps bg-secondary-fixed text-on-secondary-fixed px-1.5 py-0.5 rounded font-bold">CGM WEARER</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface leading-normal">
+        Wears a continuous glucose monitor (<span class="font-semibold text-secondary">Dexcom G7</span>) attached to dorsal left tricep.
+      </p>
+<div class="mt-space-xs bg-surface-container-lowest p-space-xs rounded-lg flex items-center gap-space-xs">
+<span class="material-symbols-outlined text-secondary text-[20px]">info</span>
+<p class="font-body-sm text-body-sm text-on-surface-variant">
+<strong class="text-on-surface">EMT Directive:</strong> Do NOT assume disorientation or slurred speech is intoxication. Check capillary blood glucose immediately (Rule out Hypoglycemic Stupor &lt; 55 mg/dL).
+        </p>
+</div>
+</div>
+</div>
+<!-- SECTION: RESCUE MEDICATIONS & EXACT ON-PERSON LOCATIONS -->
+<div class="w-full bg-surface-container rounded-xl p-space-md shadow-sm">
+<div class="flex items-center justify-between mb-space-sm">
+<div class="flex items-center gap-space-xs">
+<span class="material-symbols-outlined text-tertiary text-[22px]">backpack</span>
+<h3 class="font-headline-md text-headline-md text-on-surface font-bold">ON-PERSON RESCUE MEDS</h3>
+</div>
+<span class="font-label-caps text-label-caps text-tertiary font-bold uppercase">PHYSICAL ACCESS</span>
+</div>
+<div class="space-y-space-sm">
+<!-- MED 1: EPIPEN -->
+<div class="bg-surface-container-lowest rounded-xl p-space-sm shadow-xs">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-error text-[20px]">vaccines</span>
+<span class="font-telemetry-data text-telemetry-data text-on-surface font-bold">EpiPen Auto-Injector 0.3mg</span>
+</div>
+<span class="font-label-caps text-label-caps bg-error-container text-on-error-container px-1.5 py-0.5 rounded font-bold">EMERGENCY</span>
+</div>
+<div class="mt-space-xs flex items-center gap-1.5 text-on-surface-variant font-body-sm text-body-sm">
+<span class="font-bold text-on-surface">STOWAGE:</span>
+<span class="">Right outer zip pocket of jacket / backpack top lid.</span>
+</div>
+</div>
+<!-- MED 2: INSULIN -->
+<div class="bg-surface-container-lowest rounded-xl p-space-sm shadow-xs">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-secondary text-[20px]">medication</span>
+<span class="font-telemetry-data text-telemetry-data text-on-surface font-bold">Insulin Novolog (Aspart Pen)</span>
+</div>
+<span class="font-label-caps text-label-caps bg-secondary-fixed text-on-secondary-fixed px-1.5 py-0.5 rounded font-bold">THERMAL</span>
+</div>
+<div class="mt-space-xs flex items-center gap-1.5 text-on-surface-variant font-body-sm text-body-sm">
+<span class="font-bold text-on-surface">STOWAGE:</span>
+<span class="">Insulated silver cooling case in main commuter bag pouch.</span>
+</div>
+</div>
+<!-- MED 3: KEPPRA -->
+<div class="bg-surface-container-lowest rounded-xl p-space-sm shadow-xs">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-tertiary text-[20px]">pill</span>
+<span class="font-telemetry-data text-telemetry-data text-on-surface font-bold">Levetiracetam (Keppra) 750mg</span>
+</div>
+<span class="font-label-caps text-label-caps bg-tertiary-fixed text-on-tertiary-fixed px-1.5 py-0.5 rounded font-bold">DAILY RX</span>
+</div>
+<div class="mt-space-xs flex items-center gap-1.5 text-on-surface-variant font-body-sm text-body-sm">
+<span class="font-bold text-on-surface">REGIMEN:</span>
+<span class="">Oral, twice daily at 08:00 / 20:00 (Last dose taken this morning).</span>
+</div>
+</div>
+</div>
+</div>
+<!-- SECTION: RECENT TELEMETRY SPARKLINE & VITALS -->
+<div class="w-full bg-surface-container rounded-xl p-space-md shadow-sm">
+<div class="flex items-center justify-between mb-space-sm">
+<div class="flex items-center gap-space-xs">
+<span class="material-symbols-outlined text-secondary text-[20px]">sensors</span>
+<h3 class="font-headline-md text-headline-md text-on-surface font-bold">BASELINE METRICS</h3>
+</div>
+<span class="font-label-caps text-label-caps text-on-surface-variant">PAIRED BLE SENSOR SYNC</span>
+</div>
+<div class="grid grid-cols-2 gap-space-sm">
+<div class="bg-surface-container-high rounded-xl p-space-sm">
+<div class="flex items-center justify-between text-on-surface-variant font-label-caps text-label-caps">
+<span class="">RESTING HEART RATE</span>
+<span class="material-symbols-outlined text-primary text-[16px]">favorite</span>
+</div>
+<div class="flex items-baseline gap-1 mt-1">
+<span class="font-vital-display text-vital-display text-on-surface leading-none">68</span>
+<span class="font-label-caps text-label-caps text-on-surface-variant">BPM</span>
+</div>
+<!-- SPARKLINE SVG -->
+<div class="w-full h-8 mt-2">
+<svg class="w-full h-full text-primary" fill="none" preserveAspectRatio="none" viewBox="0 0 100 24">
+<path d="M0,12 L20,12 L24,4 L28,20 L32,8 L36,15 L40,12 L60,12 L64,2 L68,22 L72,9 L76,14 L80,12 L100,12" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
+</svg>
+</div>
+</div>
+<div class="bg-surface-container-high rounded-xl p-space-sm">
+<div class="flex items-center justify-between text-on-surface-variant font-label-caps text-label-caps">
+<span class="">GLUCOSE (LAST CGM)</span>
+<span class="material-symbols-outlined text-tertiary text-[16px]">water_drop</span>
+</div>
+<div class="flex items-baseline gap-1 mt-1">
+<span class="font-vital-display text-vital-display text-on-surface leading-none">104</span>
+<span class="font-label-caps text-label-caps text-on-surface-variant">mg/dL</span>
+</div>
+<!-- GLUCOSE SPARKLINE -->
+<div class="w-full h-8 mt-2">
+<svg class="w-full h-full text-tertiary" fill="none" preserveAspectRatio="none" viewBox="0 0 100 24">
+<path d="M0,16 Q25,18 40,14 T80,10 T100,11" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
+</svg>
+</div>
+</div>
+</div>
+</div>
+<!-- SECTION: GOOD SAMARITAN LEGAL IMMUNITY & CLINICAL CHECKSUM -->
+<div class="w-full bg-surface-container-low rounded-xl p-space-md shadow-xs space-y-space-sm">
+<div class="flex items-center gap-space-xs text-on-surface-variant">
+<span class="material-symbols-outlined text-[20px] text-tertiary">verified_user</span>
+<span class="font-label-caps text-label-caps uppercase tracking-wider font-bold">Good Samaritan Legal Immunity Protection</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant leading-relaxed">
+      Under Good Samaritan Protection Statutes, individuals rendering voluntary, emergency medical care or resuscitation based on this SafeScan NFC verified triage payload are legally shielded from civil liability for actions made in good faith.
+    </p>
+<div class="bg-surface-container-lowest rounded-lg p-space-sm font-label-caps text-label-caps space-y-1">
+<div class="flex items-center justify-between text-on-surface-variant">
+<span class="">SECURITY RECORD ID</span>
+<span class="text-on-surface font-mono">SFSCN-7809-MX9</span>
+</div>
+<div class="flex items-center justify-between text-on-surface-variant">
+<span class="">SHA-256 INTEGRITY HASH</span>
+<span class="text-secondary font-mono">E89F-4B12-9A8C-33D1</span>
+</div>
+</div>
+<!-- TACTICAL EXPORT BUTTONS -->
+<div class="grid grid-cols-2 gap-space-xs pt-space-xs">
+<button class="w-full py-space-sm px-space-md bg-surface-container-highest text-on-surface rounded-lg font-label-caps text-label-caps flex items-center justify-center gap-1 active:bg-surface-variant transition-colors" id="btn-export-pdf">
+<span class="material-symbols-outlined text-[18px]">download</span>
+        EXPORT EMS REPORT
+      </button>
+<button class="w-full py-space-sm px-space-md bg-secondary-fixed text-on-secondary-fixed rounded-lg font-label-caps text-label-caps flex items-center justify-center gap-1 active:bg-secondary transition-colors font-bold" id="btn-bluetooth-handover">
+<span class="material-symbols-outlined text-[18px]">bluetooth_searching</span>
+        PARAMEDIC HANDOVER
+      </button>
+</div>
+</div>
+<!-- TOAST NOTIFICATION CONTAINER (FOR MICRO-INTERACTIONS) -->
+<div class="fixed bottom-6 left-4 right-4 z-50 transform translate-y-32 transition-transform duration-300 ease-out pointer-events-none" id="triage-toast">
+<div class="bg-inverse-surface text-inverse-on-surface p-space-md rounded-xl shadow-xl flex items-center gap-space-sm">
+<span class="material-symbols-outlined text-secondary-container" id="toast-icon">check_circle</span>
+<span class="font-body-sm text-body-sm font-medium" id="toast-msg">Action broadcasted successfully.</span>
+</div>
+</div>
+</div>
+<script>
+  (function initTriageHUD() {
+    // Dynamic Timestamp update
+    const timeElem = document.getElementById('live-scan-time');
+    if (timeElem) {
+      const now = new Date();
+      timeElem.textContent = now.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit', second: '2-digit' }) + ' LOCAL';
+    }
+
+    const toast = document.getElementById('triage-toast');
+    const toastMsg = document.getElementById('toast-msg');
+    const toastIcon = document.getElementById('toast-icon');
+
+    function triggerToast(message, iconName) {
+      if (!toast) return;
+      toastMsg.textContent = message;
+      if (iconName && toastIcon) toastIcon.textContent = iconName;
+      toast.classList.remove('translate-y-32');
+      toast.classList.add('translate-y-0');
+      setTimeout(() => {
+        toast.classList.remove('translate-y-0');
+        toast.classList.add('translate-y-32');
+      }, 3500);
+    }
+
+    const gpsBtn = document.getElementById('btn-dispatch-gps');
+    if (gpsBtn) {
+      gpsBtn.addEventListener('click', () => {
+        triggerToast('Current coordinates sent to Regional Dispatch (911).', 'share_location');
+      });
+    }
+
+    const emtBtn = document.getElementById('btn-emt-code');
+    if (emtBtn) {
+      emtBtn.addEventListener('click', () => {
+        triggerToast('EMT Code Red Triaged: Resuscitation channel opened.', 'crisis_alert');
+      });
+    }
+
+    const exportBtn = document.getElementById('btn-export-pdf');
+    if (exportBtn) {
+      exportBtn.addEventListener('click', () => {
+        triggerToast('Encrypted Clinical Summary generated.', 'description');
+      });
+    }
+
+    const btHandoverBtn = document.getElementById('btn-bluetooth-handover');
+    if (btHandoverBtn) {
+      btHandoverBtn.addEventListener('click', () => {
+        triggerToast('Broadcasting payload to local EMT Rig via BLE Mesh...', 'bluetooth');
+      });
+    }
+  })();
+</script></main>
+
+</body></html>
