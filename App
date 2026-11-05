@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SafeScan - Vista Previa y Registro</title>
+  <!-- Tailwind CSS para diseño moderno -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    /* Efecto de pulso suave para emergencias */
+    @keyframes pulse-ring {
+      0% { transform: scale(.95); opacity: 0.8; }
+      50% { transform: scale(1.05); opacity: 0.4; }
+      100% { transform: scale(.95); opacity: 0.8; }
+    }
+    .pulse-alert {
+      animation: pulse-ring 2s infinite ease-in-out;
+    }
+  </style>
+</head>
+<body class="bg-slate-950 text-slate-100 min-h-screen py-8 px-4 font-sans">
+
+  <div class="max-w-4xl mx-auto">
+    <!-- Encabezado general -->
+    <header class="text-center mb-8">
+      <div class="inline-flex items-center gap-2 bg-red-950/60 border border-red-500/30 px-4 py-1.5 rounded-full mb-3">
+        <span class="w-2.5 h-2.5 rounded-full bg-red-500 animate-ping"></span>
+        <span class="text-xs uppercase tracking-widest text-red-400 font-bold">Dispositivo Médico Inteligente</span>
+      </div>
+      <h1 class="text-4xl font-extrabold text-white tracking-tight">Safe<span class="text-red-500">Scan</span></h1>
+      <p class="text-slate-400 text-sm mt-1">Ecosistema NFC para collares, pulseras y llaveros de urgencia</p>
+    </header>
+
+    <!-- Barra de navegación entre Formulario y Vista NFC -->
+    <div class="flex justify-center gap-3 mb-8">
+      <button onclick="cambiarVista('form')" id="btnForm" class="px-5 py-2.5 rounded-xl font-semibold text-sm transition bg-red-600 text-white shadow-lg shadow-red-950">
+        📝 1. Registro / Editar Mis Datos
+      </button>
+      <button onclick="cambiarVista('nfc')" id="btnNfc" class="px-5 py-2.5 rounded-xl font-semibold text-sm transition bg-slate-800 text-slate-300 hover:bg-slate-700">
+        📲 2. Simular Escaneo NFC (Pulsera)
+      </button>
+    </div>
+
+    <div class="grid md:grid-cols-2 gap-8 items-start">
+      
+      <!-- ================= PANEL 1: REGISTRO DE DATOS ================= -->
+      <section id="seccionForm" class="bg-slate-900 border border-slate-800 rounded-2xl p-6 shadow-xl">
+        <h2 class="text-xl font-bold text-white mb-1">Mi Información Médica</h2>
+        <p class="text-xs text-slate-400 mb-5">Completa este formulario. Al hacer clic en guardar, los datos se sincronizarán con el tag NFC.</p>
+
+        <form id="safeScanForm" onsubmit="guardarDatos(event)" class="space-y-4 text-xs">
+          <div>
+            <label class="block text-slate-300 font-semibold mb-1">Nombre Completo</label>
+            <input id="inputName" type="text" required class="w-full bg-slate-800 border border-slate-700 rounded-lg p-2.5 text-white focus:outline-none focus:border-red-500" value="Carlos Mendoza Ortiz">
+          </div>
+
+          <div class="grid grid-cols-2 gap-3">
+            <div>
+              <label class="block text-slate-300 font-semibold mb-1">Grupo Sanguíneo</label>
+              <select id="inputBlood" class="w-full bg-slate-800 border border-slate-700 rounded-lg p-2.5 text-white focus:outline-none focus:border-red-500">
+                <option value="O+">O Positivo (O+)</option>
+                <option value="O-">O Negativo (O-)</option>
+                <option value="A+">A Positivo (A+)</option>
+                <option value="A-">A Negativo (A-)</option>
+                <option value="B+">B Positivo (B+)</option>
+                <option value="B-">B Negativo (B-)</option>
+                <option value="AB+">AB Positivo (AB+)</option>
+                <option value="AB-">AB Negativo (AB-)</option>
+              </select>
+            </div>
+            <div>
+              <label class="block text-slate-300 font-semibold mb-1">Edad</label>
+              <input id="inputAge" type="number" class="w-full bg-slate-800 border border-slate-700 rounded-lg p-2.5 text-white focus:outline-none focus:border-red-500" value="29">
+            </div>
+          </div>
+
+          <div>
+            <label class="block text-slate-300 font-semibold mb-1">Alergias (separadas por coma)</label>
+            <input id="inputAllergies" type="text" class="w-full bg-slate-800 border border-slate-700 rounded-lg p-2.5 text-white focus:outline-none focus:border-red-500" value="Penicilina, Mariscos, Aspirina">
+          </div>
+
+          <div>
+            <label class="block text-slate-300 font-semibold mb-1">Condición Médica Específica</label>
+            <input id="inputConditions" type="text" class="w-full bg-slate-800 border border-slate-700 rounded-lg p-2.5 text-white focus:outline-none focus:border-red-500" value="Diabetes Tipo 1, Asma moderada">
+          </div>
+
+          <div>
+            <label class="block text-slate-300 font-semibold mb-1">Trastorno o Alteración Médica</label>
+            <input id="inputDisorders" type="text" class="w-full bg-slate-800 border border-slate-700 rounded-lg p-2.5 text-white focus:outline-none focus:border-red-500" value="Epilepsia focal">
+          </div>
+
+          <div>
+            <label class="block text-slate-300 font-semibold mb-1">Medicamentos Actuales y Dosis</label>
+            <textarea id="inputMeds" rows="2" class="w-full bg-slate-800 border border-slate-700 rounded-lg p-2.5 text-white focus:outline-none focus:border-red-500">Insulina Glargina 20UI noche, Salbutamol si presenta crisis</textarea>
+          </div>
+
+          <div class="border-t border-slate-800 pt-3">
+            <span class="block text-red-400 font-bold mb-2">Contacto de Urgencia Principal</span>
+            <div class="grid grid-cols-2 gap-3">
+              <div>
+                <label class="block text-slate-400 mb-1">Nombre / Parentesco</label>
+                <input id="inputContactName" type="text" required class="w-full bg-slate-800 border border-slate-700 rounded-lg p-2.5 text-white" value="Mariana (Esposa)">
+              </div>
+              <div>
+                <label class="block text-slate-400 mb-1">Número de Teléfono</label>
+                <input id="inputContactPhone" type="tel" required class="w-full bg-slate-800 border border-slate-700 rounded-lg p-2.5 text-white" value="+525512345678">
+              </div>
+            </div>
+          </div>
+
+          <button type="submit" class="w-full bg-red-600 hover:bg-red-700 text-white font-bold py-3 rounded-xl transition shadow-lg shadow-red-950 mt-4">
+            💾 Guardar y Actualizar SafeScan
+          </button>
+        </form>
+      </section>
+
+      <!-- ================= PANEL 2: SIMULADOR DE CELULAR (VISTA NFC) ================= -->
+      <section id="seccionNfc" class="flex flex-col items-center">
+        <!-- Marco de Smartphone -->
+        <div class="w-full max-w-[340px] bg-slate-900 border-4 border-slate-700 rounded-[38px] p-4 shadow-2xl shadow-cyan-950/20 relative">
+          <!-- Bocina superior del cel -->
+          <div class="w-24 h-4 bg-slate-800 rounded-full mx-auto mb-4 flex items-center justify-center">
+            <div class="w-2.5 h-2.5 rounded-full bg-slate-700"></div>
+          </div>
+
+          <!-- PANTALLA PÚBLICA DE EMERGENCIA -->
+          <div class="bg-slate-950 rounded-[26px] p-4 border border-slate-800 text-left min-h-[580px] flex flex-col justify-between">
+            <div>
+              <!-- Header SafeScan -->
+              <div class="flex items-center justify-between pb-3 border-b border-slate-800">
+                <div class="flex items-center gap-1.5">
+                  <span class="text-red-500 text-lg">🛡️</span>
+                  <span class="font-black text-sm tracking-wide text-white">Safe<span class="text-red-500">Scan</span></span>
+                </div>
+                <span class="text-[10px] bg-red-500/20 border border-red-500/40 text-red-300 font-bold px-2 py-0.5 rounded-full">
+                  URGENCIAS
+                </span>
+              </div>
+
+              <!-- Tarjeta de Paciente & Sangre -->
+              <div class="flex items-center justify-between bg-slate-900 border border-slate-800 p-3 rounded-xl my-3">
+                <div>
+                  <span class="text-[9px] uppercase tracking-wider text-slate-400 font-bold block">Paciente</span>
+                  <h3 id="viewName" class="font-bold text-white text-base leading-tight">Carlos Mendoza Ortiz</h3>
+                  <span id="viewAge" class="text-[11px] text-slate-400">29 años</span>
+                </div>
+                <div class="bg-red-950/80 border border-red-500/50 rounded-lg px-2.5 py-1 text-center min-w-[55px]">
+                  <span class="text-[9px] block text-red-400 font-black">GRUPO</span>
+                  <span id="viewBlood" class="text-xl font-black text-red-400 leading-none">O+</span>
+                </div>
+              </div>
+
+              <!-- Botón Llamar a Emergencia -->
+              <a id="viewCallLink" href="tel:+525512345678" class="w-full bg-red-600 hover:bg-red-700 text-white font-bold py-2.5 px-3 rounded-xl flex items-center justify-center gap-2 text-xs shadow-lg shadow-red-900/40 mb-3 transition">
+                <span>📞</span>
+                <span>Llamar a: <span id="viewContactName">Mariana (Esposa)</span></span>
+              </a>
+
+              <!-- Alergias -->
+              <div class="mb-2.5 bg-slate-900/90 border border-amber-500/30 rounded-xl p-2.5">
+                <span class="text-[10px] font-bold text-amber-400 uppercase tracking-wide flex items-center gap-1 mb-1">
+                  ⚠️ Alergias Graves
+                </span>
+                <div id="viewAllergies" class="flex flex-wrap gap-1">
+                  <!-- Se llena con JS -->
+                </div>
+              </div>
+
+              <!-- Condiciones y Trastornos -->
+              <div class="mb-2.5 bg-slate-900/90 border border-blue-500/30 rounded-xl p-2.5 text-[11px]">
+                <span class="text-[10px] font-bold text-blue-400 uppercase tracking-wide flex items-center gap-1 mb-1">
+                  🫀 Condiciones y Trastornos
+                </span>
+                <p class="text-slate-300 mb-0.5"><strong class="text-slate-400">Condición:</strong> <span id="viewConditions">Diabetes Tipo 1, Asma moderada</span></p>
+                <p class="text-slate-300"><strong class="text-slate-400">Trastorno:</strong> <span id="viewDisorders">Epilepsia focal</span></p>
+              </div>
+
+              <!-- Medicación Actual -->
+              <div class="bg-slate-900/90 border border-emerald-500/30 rounded-xl p-2.5 text-[11px]">
+                <span class="text-[10px] font-bold text-emerald-400 uppercase tracking-wide flex items-center gap-1 mb-1">
+                  💊 Medicamentos Actuales
+                </span>
+                <p id="viewMeds" class="text-slate-300 whitespace-pre-line leading-relaxed">Insulina Glargina 20UI noche&#10;Salbutamol si presenta crisis</p>
+              </div>
+            </div>
+
+            <!-- Footer NFC ID -->
+            <div class="text-center pt-2 border-t border-slate-900 text-[9px] text-slate-500">
+              Dispositivo ID: <span class="font-mono text-slate-400">NFC-SAFESCAN-7892</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+    </div>
+  </div>
+
+  <!-- SCRIPT PARA MANEJAR LA INTERACTIVIDAD -->
+  <script>
+    // Inicializar etiquetas de alergias
+    function actualizarAlergias(texto) {
+      const contenedor = document.getElementById("viewAllergies");
+      contenedor.innerHTML = "";
+      const lista = texto.split(",").map(a => a.trim()).filter(a => a.length > 0);
+      
+      if (lista.length === 0) {
+        contenedor.innerHTML = `<span class="text-[11px] text-slate-500">Ninguna registrada</span>`;
+        return;
+      }
+
+      lista.forEach(item => {
+        const span = document.createElement("span");
+        span.className = "bg-amber-500/10 text-amber-300 border border-amber-500/20 px-2 py-0.5 rounded text-[10px]";
+        span.textContent = item;
+        contenedor.appendChild(span);
+      });
+    }
+
+    // Guardar cambios desde el formulario
+    function guardarDatos(event) {
+      event.preventDefault();
+      
+      // Obtener datos
+      const nombre = document.getElementById("inputName").value;
+      const sangre = document.getElementById("inputBlood").value;
+      const edad = document.getElementById("inputAge").value;
+      const alergias = document.getElementById("inputAllergies").value;
+      const condiciones = document.getElementById("inputConditions").value;
+      const trastornos = document.getElementById("inputDisorders").value;
+      const meds = document.getElementById("inputMeds").value;
+      const contactoNombre = document.getElementById("inputContactName").value;
+      const contactoTel = document.getElementById("inputContactPhone").value;
+
+      // Actualizar vista NFC
+      document.getElementById("viewName").textContent = nombre;
+      document.getElementById("viewBlood").textContent = sangre;
+      document.getElementById("viewAge").textContent = `${edad} años`;
+      document.getElementById("viewConditions").textContent = condiciones || "Ninguna";
+      document.getElementById("viewDisorders").textContent = trastornos || "Ninguno";
+      document.getElementById("viewMeds").textContent = meds || "Sin medicación reportada";
+      document.getElementById("viewContactName").textContent = contactoNombre;
+      document.getElementById("viewCallLink").href = `tel:${contactoTel}`;
+      actualizarAlergias(alergias);
+
+      alert("✅ ¡Datos actualizados! Revisa la simulación del celular en pantalla.");
+    }
+
+    // Inicializar primera carga
+    actualizarAlergias(document.getElementById("inputAllergies").value);
+
+    // Navegación en móvil
+    function cambiarVista(vista) {
+      const f = document.getElementById("seccionForm");
+      const n = document.getElementById("seccionNfc");
+      const btnF = document.getElementById("btnForm");
+      const btnN = document.getElementById("btnNfc");
+
+      if (window.innerWidth < 768) {
+        if (vista === 'form') {
+          f.classList.remove('hidden');
+          n.classList.add('hidden');
+          btnF.classList.add('bg-red-600', 'text-white');
+          btnN.classList.remove('bg-red-600', 'text-white');
+        } else {
+          f.classList.add('hidden');
+          n.classList.remove('hidden');
+          btnN.classList.add('bg-red-600', 'text-white');
+          btnF.classList.remove('bg-red-600', 'text-white');
+        }
+      }
+    }
+  </script>
+</body>
+</html>
